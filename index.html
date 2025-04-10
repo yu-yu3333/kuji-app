@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>番号でくじ引き</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; margin-top: 50px; }
+    input { font-size: 24px; padding: 10px; width: 200px; }
+    button { font-size: 24px; padding: 10px 20px; margin-left: 10px; }
+    #result { margin-top: 30px; font-size: 32px; }
+  </style>
+</head>
+<body>
+  <h1>🎯 番号でくじ引き 🎯</h1>
+  <input type="text" id="userNumber" placeholder="くじ番号を入力">
+  <button onclick="checkKuji()">くじを引く！</button>
+  <div id="result"></div>
+
+  <script>
+    // あらかじめ決めておいた当たり番号（複数でもOK）
+    const winningNumbers = ["1234", "5678", "9999"];
+
+    function checkKuji() {
+      const input = document.getElementById("userNumber").value.trim();
+      const resultArea = document.getElementById("result");
+
+      if (input === "") {
+        resultArea.textContent = "⚠️ 番号を入力してください";
+        return;
+      }
+
+      if (winningNumbers.includes(input)) {
+        resultArea.textContent = "🎉当たり！おめでとうございます！";
+      } else {
+        resultArea.textContent = "残念…ハズレです。";
+      }
+    }
+  </script>
+</body>
+</html>
